@@ -3,8 +3,8 @@ import json
 
 class RepoScraper:
     def get_repos(self, username):
-        main_req = requests.get(f'https://api.github.com/users/{username}/repos')
-        data = main_req.json()
+        repos_req = requests.get(f'https://api.github.com/users/{username}/repos')
+        data = repos_req.json()
 
         for i in range(0, len(data)):
             lic = 'No license' if not data[i]['license'] else data[i]['license']['name']
