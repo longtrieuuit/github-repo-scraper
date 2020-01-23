@@ -3,23 +3,18 @@ import json
 
 class RepoScraper:
     def get_repos(self, username):
-        repos_req = requests.get(f'https://api.github.com/users/{username}/repos')
-        data = repos_req.json()
+        main_req = requests.get(f'https://api.github.com/users/{username}/repos')
+        data = main_req.json()
 
         for i in range(0, len(data)):
             lic = 'No license' if not data[i]['license'] else data[i]['license']['name']
-            repo_lang_req = requests.get(f'https://api.github.com/repos/{username}/'+data[i]['name']+'/languages')
-            repo_lang_data = repo_lang_req.json()
+            langs = data[i]['language']
 
-            print('Name: ' + str(data[i]['name']))
-            print('ID: ' + str(data[i]['id']))
-            print('Private? ' + str(data[i]['private']))
-            print(f'License: {lic}')
-            print('Language(s): ' + str(', '.join(repo_lang_data.keys())))
+            print(str(data[i]['name'])+'| id: '+str(data[i]['id'])+', private: '+str(data[i]['private'])+f', licence: {lic}, langs: {langs}, stars: '+str(data[i]['stargazers_count']))
+            print(100*'-')
 
-            print(20*'-')
         return
-
+        
 repositories = RepoScraper()
 repositories.get_repos('devharry2019')
 
