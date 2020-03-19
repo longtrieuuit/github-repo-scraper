@@ -19,4 +19,7 @@ repositories = RepoScraper()
 repositories.get_repos('devharry2019')
 
 
+https://api.github.com/users/devharry2019/followers
+
+https://api.github.com/users/devharry2019/following
 
