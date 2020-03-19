@@ -21,5 +21,6 @@ repositories.get_repos('devharry2019')
 
 https://api.github.com/users/devharry2019/followers
 
+https://api.github.com/repos/devharry2019/github-repo-scraper/issues
 https://api.github.com/users/devharry2019/following
 
